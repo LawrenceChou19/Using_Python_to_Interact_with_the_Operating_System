@@ -1,0 +1,1 @@
+#[time_to_automate < (time_to_perform * amount_of_times_done)]
