@@ -18,3 +18,6 @@ lines = file.readlines()
 file.close()
 lines.sort()
 print(lines)
+
+with open("novol.txt","w") as file:
+    file.write("It was a dark and stormy night")
