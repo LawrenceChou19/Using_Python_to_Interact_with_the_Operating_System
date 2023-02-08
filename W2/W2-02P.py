@@ -8,21 +8,23 @@
 # print(create_python_script("program.py"))
 
 
-# import os
 
-# def new_directory(directory, filename):
-# # Before creating a new directory, check to see if it already exists
-#     if os.path.isdir(directory) == False:
-#         os.mkdir(directory)
-#     # Create the new file inside of the new directory
-#     os.chdir(directory)
-#     with open (filename,"w") as file:
-#         pass
+import os
 
-#     # Return the list of files in the new directory
-#     return os.getcwd()
+def new_directory(directory, filename):
+# Before creating a new directory, check to see if it already exists
+    if os.path.isdir(directory) == False:
+        os.mkdir(directory)
+    # Create the new file inside of the new directory
+    os.chdir(directory)
+    with open (filename,"w") as file:
+        pass
 
-# print(new_directory("PythonPrograms", "script.py"))
+    # Return the list of files in the new directory
+    return os.listdir()
+
+print(new_directory("PythonPrograms", "script.py"))
+
 
 
 # import os
@@ -41,13 +43,13 @@
 # print(file_date("newfile.txt")) 
 # # Should be today's date in the format of yyyy-mm-dd
 
-import os
-def parent_directory():
-  # Create a relative path to the parent 
-  # of the current working directory 
-  relative_parent = os.path.join(os.getcwd(),os.pardir)# "ls" + ".." + "ls" in console
+# import os
+# def parent_directory():
+#   # Create a relative path to the parent 
+#   # of the current working directory 
+#   relative_parent = os.path.join(os.getcwd(),os.pardir)# "ls" + ".." + "ls" in console
 
-  # Return the absolute path of the parent directory
-  return os.path.abspath(relative_parent)
+#   # Return the absolute path of the parent directory
+#   return os.path.abspath(relative_parent)
 
-print(parent_directory())
+# print(parent_directory())
