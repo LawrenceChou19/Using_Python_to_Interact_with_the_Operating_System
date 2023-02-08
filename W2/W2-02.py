@@ -4,7 +4,7 @@ import os
 
 
 # os.rename("first_darft.txt","finished_masterpiece.txt")
-# os.path.exists("finished_masterpiece.txt")
+# print(os.path.exists("finished_masterpiece.txt"))
 # os.path.exists("userlist.txt")
 
 # print(os.path.getsize("spider.txt"))
@@ -23,11 +23,15 @@ import os
 # os.rmdir("newer_dir")#delete
 # os.mkdir("newer_dir")#create
 
-os.listdir("website")
-dir = "website"
-for name in os.listdir(dir):
-    fullname = os.path.join(dir,name)
-    if os.path.isdir(fullname):
-        print("{} is a directory".format(fullname))
-    else:
-        print("{} is a file".format(fullname))
+# os.listdir("website")
+# dir = "website"
+# for name in os.listdir(dir):
+#     print(name)
+#     fullname = os.path.join(dir,name)
+#     print(fullname)
+#     if os.path.isdir(fullname):
+#         print("{} is a directory".format(fullname))
+#     else:
+#         print("{} is a file".format(fullname))
+
+
