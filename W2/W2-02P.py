@@ -8,9 +8,9 @@
 # print(create_python_script("program.py"))
 
 
-
+import time
 import os
-
+start = time.time()
 def new_directory(directory, filename):
 # Before creating a new directory, check to see if it already exists
     if os.path.isdir(directory) == False:
@@ -24,8 +24,27 @@ def new_directory(directory, filename):
     return os.listdir()
 
 print(new_directory("PythonPrograms", "script.py"))
+end = time.time()
+print("執行時間：%f 秒" % (end - start))
 
+import time
+import os
+start = time.time()
+def new_directory(directory, filename):
+# Before creating a new directory, check to see if it already exists
+    if os.path.exists(directory) == False:
+        os.makedirs(directory)
+    # Create the new file inside of the new directory
+    os.chdir(directory)
+    with open (filename,"w") as file:
+        pass
+    # Return the list of files in the new directory
+    return os.listdir()
 
+print(new_directory("PythonPrograms", "script.py"))
+
+end = time.time()
+print("執行時間：%f 秒" % (end - start))
 
 # import os
 # import datetime
