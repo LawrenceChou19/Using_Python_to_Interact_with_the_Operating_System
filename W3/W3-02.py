@@ -19,3 +19,27 @@ def check_aei (text):
 print(check_aei("academia")) # True
 print(check_aei("aerial")) # False
 print(check_aei("paramedic")) # True
+
+print(re.search(r"[a-z]way","The end of the highway"))
+print(re.search(r"[a-z]way","What a way to go"))
+print(re.search(r"cloud[a-zA-Z0-9]","cloudy"))
+print(re.search(r"cloud[a-zA-Z0-9]","cloud9"))
+
+import re
+def check_punctuation (text):
+  result = re.search(r"[\.!\?]+$", text) #One or more of the punctuations (., !, or ?) after the second run of small letters, and then the string ends.
+  return result != None
+
+print(check_punctuation("This is a sentence that ends with a period.")) # True
+print(check_punctuation("This is a sentence fragment without a period")) # False
+print(check_punctuation("Aren't regular expressions awesome?")) # True
+print(check_punctuation("Wow! We're really picking up some steam now!")) # True
+print(check_punctuation("End of the line")) # False
+
+print(re.search(r"[^a-zA-Z]","This is a sentence with spaces."))
+
+print(re.search(r"[^a-zA-Z ]","This is a sentence with spaces."))
+print(re.search(r"cat|dog","I like cats."))
+print(re.search(r"cat|dog","I like dogs."))
+print(re.search(r"cat|dog","I like dogs and cats."))
+print(re.findall(r"cat|dog","I like dogs and cats."))
