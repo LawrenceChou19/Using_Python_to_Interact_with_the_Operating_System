@@ -44,4 +44,5 @@ print(re.search(r"cat|dog","I like dogs."))
 print(re.search(r"cat|dog","I like dogs and cats."))
 print(re.findall(r"cat|dog","I like dogs and cats."))
 
-test
+print(re.search(r"Py.*n","Pygmalion"))
+print(re.search(r"Py.*n","Python_Programming"))
