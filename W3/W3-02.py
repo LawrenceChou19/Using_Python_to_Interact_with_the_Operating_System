@@ -46,3 +46,28 @@ print(re.findall(r"cat|dog","I like dogs and cats."))
 
 print(re.search(r"Py.*n","Pygmalion"))
 print(re.search(r"Py.*n","Python_Programming"))
+print(re.search(r"Py[a-z]*n","Python_Programming"))
+
+print(re.search(r"o+l+","goldfish"))
+print(re.search(r"o+l+","woolly"))
+print(re.search(r"o+l+","boil"))
+
+import re
+def repeating_letter_a(text):
+  result = re.search(r"^[a-bA-Z]", text)
+  return result != None
+
+print(repeating_letter_a("banana")) # True
+print(repeating_letter_a("pineapple")) # False
+print(repeating_letter_a("Animal Kingdom")) # True
+print(repeating_letter_a("A is for apple")) # True
+
+print(re.search(r"p?each","To each their own"))
+print(re.search(r"p?each","I like peaches"))
+print(re.search(r".com","welcome"))
+print(re.search(r"\.com","mydomain.com"))
+print(re.search(r"\w*","This is an example"))
+print(re.search(r"\w*","And_this_is_another")) #\w matches letters
+print(re.search(r"\d","And_this_is_another123")) #\d for matching digits
+print(re.search(r"\s*","And this is another")) #\s for matching whitespace characters like space
+print(re.search(r"\b","And_this_is_another"))
