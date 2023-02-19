@@ -70,4 +70,18 @@ print(re.search(r"\w*","This is an example"))
 print(re.search(r"\w*","And_this_is_another")) #\w matches letters
 print(re.search(r"\d","And_this_is_another123")) #\d for matching digits
 print(re.search(r"\s*","And this is another")) #\s for matching whitespace characters like space
-print(re.search(r"\b","And_this_is_another"))
+print(re.search(r"\b","And+this_is_another"))
+
+import re
+def check_character_groups(text):
+  result = re.search(r"\w+\s", text)
+  return result != None
+
+print(check_character_groups("One")) # False
+print(check_character_groups("123  Ready Set GO")) # True
+print(check_character_groups("username user_01")) # True
+print(check_character_groups("shopping_list: milk, bread, eggs.")) # False
+
+
+print(re.search(r"A.*a","Argentina"))
+print(re.search(r"A.*a$","Azerbaija"))
