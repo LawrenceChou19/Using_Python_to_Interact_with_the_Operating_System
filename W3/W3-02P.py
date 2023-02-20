@@ -1,6 +1,7 @@
 import re
 def check_web_address(text):
-  pattern = r"[\.com,org,US]$"
+  pattern = r"[\.com|org|US]$"
+#   pattern = r"^\S+\.[a-zA-Z]+$"
   result = re.search(pattern, text)
   return result != None
 
@@ -13,7 +14,8 @@ print(check_web_address("My_Favorite-Blog.US")) # True
 
 import re
 def check_time(text):
-  pattern = r"\d+:\d+[\sAM,pm]"
+  pattern = r"\d+:\d+[\sAM|pm]"
+#   pattern = r"[0-2]*:[00-59 ?[am|pm|AM|PM]"
   result = re.search(pattern, text)
   return result != None
 
@@ -25,6 +27,7 @@ print(check_time("five o'clock")) # False
 import re
 def contains_acronym(text):
   pattern = r"[(*+\d)]" 
+#   pattern = r"\([A-Z1-9][a-zA-Z1-9]*\)"
   result = re.search(pattern, text)
   return result != None
 
@@ -37,6 +40,7 @@ print(contains_acronym("Have fun using a self-contained underwater breathing app
 import re
 def check_zip_code (text):
   result = re.search(r"[^A-Z]\s*\d{5}", text)
+#   result = re.search(r"[ ]\d{5}|[ ]\d{5}-\d{4}", text)
   return result != None
 
 print(check_zip_code("The zip codes for New York are 10001 thru 11104.")) # True
