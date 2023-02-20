@@ -85,3 +85,26 @@ print(check_character_groups("shopping_list: milk, bread, eggs.")) # False
 
 print(re.search(r"A.*a","Argentina"))
 print(re.search(r"A.*a$","Azerbaija"))
+print(re.search(r"A.*a$","Australia"))
+
+pattern = r"^[a-zA-Z_][a-zA-Z0-9_]*$"
+print(re.search(pattern,"_this_is_a_valid_variable_name"))
+print(re.search(pattern,"this is a valid variable"))
+print(re.search(pattern,"my_variable1"))
+print(re.search(pattern,"2my_variable1"))
+
+
+import re
+def check_sentence(text):
+  result = re.search(r"^[A-Z]+[a-z\s]+[\.\?!]$", text)# ^[A-Z]+ = uppercase letter , [a-z\s]+ = at least some lowercase letter or space, [\.\?!]$ = a period, question mark, or exclamation point 
+  return result != None
+
+print(check_sentence("Is this is a sentence?")) # True
+print(check_sentence("is this is a sentence?")) # False
+print(check_sentence("Hello")) # False
+print(check_sentence("1-2-3-GO!")) # False
+print(check_sentence("A star is born.")) # True
+
+content = 'Extra stings Hello 1234567 World_This is a Regex Demo Extra stings'
+result = re.search('Hello.*?(\d+).*?Demo', content)
+print(result)
