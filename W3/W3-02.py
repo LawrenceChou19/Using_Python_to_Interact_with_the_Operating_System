@@ -108,3 +108,14 @@ print(check_sentence("A star is born.")) # True
 content = 'Extra stings Hello 1234567 World_This is a Regex Demo Extra stings'
 result = re.search('Hello.*?(\d+).*?Demo', content)
 print(result)
+
+
+import re
+p = re.compile('[a-z]+')
+print(p)
+print(p.match('::: message'))
+m = p.search('::: message'); print(m)
+print(m.group())
+print(m.span())
+p = re.compile(r'\d+')
+print(p.search('12 drummers drumming, 11 pipers piping, 10 lords a-leaping'))
