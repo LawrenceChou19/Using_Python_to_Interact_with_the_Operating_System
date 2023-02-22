@@ -4,22 +4,31 @@ print(result)
 
 result = re.search(r"aza","bazaar")
 print(result)
-
 result = re.search(r"aza","maze")
 print(result)
-
 result = re.search(r"p.ng","penguin")
 print(result)
+result = re.search(r"p.ng","clapping")
+print(result)
+result = re.search(r"p.ng","sponge")
+print(result)
+result = re.search(r"p.ng","Pangaea",re.IGNORECASE)
+print(result)
+
 
 import re
 def check_aei (text):
   result = re.search(r"a.e.i", text)
   return result != None
-
 print(check_aei("academia")) # True
 print(check_aei("aerial")) # False
 print(check_aei("paramedic")) # True
 
+
+print("======================================================")
+
+
+print(re.search(r"[Pp]ython","Python"))
 print(re.search(r"[a-z]way","The end of the highway"))
 print(re.search(r"[a-z]way","What a way to go"))
 print(re.search(r"cloud[a-zA-Z0-9]","cloudy"))
@@ -37,12 +46,13 @@ print(check_punctuation("Wow! We're really picking up some steam now!")) # True
 print(check_punctuation("End of the line")) # False
 
 print(re.search(r"[^a-zA-Z]","This is a sentence with spaces."))
-
 print(re.search(r"[^a-zA-Z ]","This is a sentence with spaces."))
 print(re.search(r"cat|dog","I like cats."))
 print(re.search(r"cat|dog","I like dogs."))
 print(re.search(r"cat|dog","I like dogs and cats."))
 print(re.findall(r"cat|dog","I like dogs and cats."))
+
+print("======================================================")
 
 print(re.search(r"Py.*n","Pygmalion"))
 print(re.search(r"Py.*n","Python_Programming"))
@@ -63,14 +73,28 @@ print(repeating_letter_a("Animal Kingdom")) # True
 print(repeating_letter_a("A is for apple")) # True
 
 print(re.search(r"p?each","To each their own"))
+#<re.Match object; span=(3, 7), match='each'>
 print(re.search(r"p?each","I like peaches"))
+#<re.Match object; span=(7, 12), match='peach'>
+
+print("======================================================")
+
 print(re.search(r".com","welcome"))
+#<re.Match object; span=(2, 6), match='lcom'>
+print(re.search(r"\.com","welcome"))
+#None
 print(re.search(r"\.com","mydomain.com"))
+#<re.Match object; span=(8, 12), match='.com'>
 print(re.search(r"\w*","This is an example"))
-print(re.search(r"\w*","And_this_is_another")) #\w matches letters
-print(re.search(r"\d","And_this_is_another123")) #\d for matching digits
-print(re.search(r"\s*","And this is another")) #\s for matching whitespace characters like space
+#<re.Match object; span=(0, 4), match='This'>
+print(re.search(r"\w*","And_this_is_another")) 
+#\w matches letters <re.Match object; span=(0, 19), match='And_this_is_another'>
+print(re.search(r"\d","And_this_is_another123")) 
+#\d for matching digits <re.Match object; span=(19, 20), match='1'>
+print(re.search(r"\s*","And this is another")) 
+#\s for matching whitespace characters like space <re.Match object; span=(0, 0), match=''>
 print(re.search(r"\b","And+this_is_another"))
+#<re.Match object; span=(0, 0), match=''>
 
 import re
 def check_character_groups(text):
@@ -82,9 +106,10 @@ print(check_character_groups("123  Ready Set GO")) # True
 print(check_character_groups("username user_01")) # True
 print(check_character_groups("shopping_list: milk, bread, eggs.")) # False
 
+print("======================================================")
 
 print(re.search(r"A.*a","Argentina"))
-print(re.search(r"A.*a$","Azerbaija"))
+print(re.search(r"A.*a$","Azerbaijan"))
 print(re.search(r"A.*a$","Australia"))
 
 pattern = r"^[a-zA-Z_][a-zA-Z0-9_]*$"
