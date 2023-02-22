@@ -85,3 +85,44 @@ print(extract_pid("A string that also has numbers [34567] but no uppercase messa
 print(extract_pid("July 31 08:08:08 mycomputer new_process[67890]: RUNNING Performing backup")) # 67890 (RUNNING)
 
 print(re.split(r"the|a", "One sentence. Another one? And the last one!"))
+
+import re
+def transform_record(record):
+  # new_search = re.findall(r"\d+-\d+-*\d+",record)
+  # new_record = re.sub(r"\d+-\d+-*\d+","+1-"+new_search[0],record) # bad solution
+
+  new_record = re.sub(r"(\d+-\d+-*\d+)",r"+1-\1",record)
+  return new_record
+
+print(transform_record("Sabrina Green,802-867-5309,System Administrator")) 
+# Sabrina Green,+1-802-867-5309,System Administrator
+
+print(transform_record("Eli Jones,684-3481127,IT specialist")) 
+# Eli Jones,+1-684-3481127,IT specialist
+
+print(transform_record("Melody Daniels,846-687-7436,Programmer")) 
+# Melody Daniels,+1-846-687-7436,Programmer
+
+print(transform_record("Charlie Rivera,698-746-3357,Web Developer")) 
+# Charlie Rivera,+1-698-746-3357,Web Developer
+
+import re
+def multi_vowel_words(text):
+  pattern = r"\w+[aeiou]{3}\w+"
+  result = re.findall(pattern, text)
+  return result
+
+print(multi_vowel_words("Life is beautiful")) 
+# ['beautiful']
+
+print(multi_vowel_words("Obviously, the queen is courageous and gracious.")) 
+# ['Obviously', 'queen', 'courageous', 'gracious']
+
+print(multi_vowel_words("The rambunctious children had to sit quietly and await their delicious dinner.")) 
+# ['rambunctious', 'quietly', 'delicious']
+
+print(multi_vowel_words("The order of a data queue is First In First Out (FIFO)")) 
+# ['queue']
+
+print(multi_vowel_words("Hello world!")) 
+# []
