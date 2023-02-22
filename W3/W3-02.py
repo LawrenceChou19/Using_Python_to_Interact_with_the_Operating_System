@@ -114,10 +114,13 @@ print(re.search(r"A.*a$","Australia"))
 
 pattern = r"^[a-zA-Z_][a-zA-Z0-9_]*$"
 print(re.search(pattern,"_this_is_a_valid_variable_name"))
+#<re.Match object; span=(0, 30), match='_this_is_a_valid_variable_name'>
 print(re.search(pattern,"this is a valid variable"))
+#None
 print(re.search(pattern,"my_variable1"))
+#<re.Match object; span=(0, 12), match='my_variable1'>
 print(re.search(pattern,"2my_variable1"))
-
+#None
 
 import re
 def check_sentence(text):
@@ -129,6 +132,9 @@ print(check_sentence("is this is a sentence?")) # False
 print(check_sentence("Hello")) # False
 print(check_sentence("1-2-3-GO!")) # False
 print(check_sentence("A star is born.")) # True
+
+print("======================================================")
+
 
 content = 'Extra stings Hello 1234567 World_This is a Regex Demo Extra stings'
 result = re.search('Hello.*?(\d+).*?Demo', content)
