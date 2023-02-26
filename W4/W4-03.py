@@ -40,7 +40,7 @@ print(show_time_of_pid("Jul 6 14:05:01 computer.name CRON[29440]: USER (naughty_
 import re
 def show_time_of_pid(line):
 
-  pattern = r"(\w+ \d \d+\:\d+\:\d+) \w.+ [\w=_]+\[([0-9]+)\]: \w*"
+  pattern = r"(\w+ \d \d+\:\d+\:\d+) \w.+ [\w=_]+\[([0-9]+)\]:(\w*)"
   #(\w+ \d \d+\:\d+\:\d+)= Jul 6 14:01:23, 
   # \w.+ = computer.name  
   # [\w=_]+\[([0-9]+)\] = CRON[29440] or jam_tag=psim[29187]
