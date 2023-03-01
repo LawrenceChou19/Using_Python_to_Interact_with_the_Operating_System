@@ -62,3 +62,31 @@ print(show_time_of_pid("Jul 6 14:03:40 computer.name cacheclient[29807]: start s
 print(show_time_of_pid("Jul 6 14:04:01 computer.name CRON[29440]: USER (naughty_user)")) # Jul 6 14:04:01 pid:29440
 
 print(show_time_of_pid("Jul 6 14:05:01 computer.name CRON[29440]: USER (naughty_user)")) # Jul 6 14:05:01 pid:29440
+
+
+print("========================================================================")
+
+usernames = {}
+name = "good_user"
+usernames[name] = usernames.get(name,0)+1
+print(usernames)
+usernames[name] = usernames.get(name,0)+1
+print(usernames)
+
+#!/usr/bin/env python3
+
+import re 
+import sys
+
+logfile=sys.argv[1]
+with open(logfile) as f:
+	for line in f:
+		if "CRON" not in line:
+			continue
+		pattern = r"USER \((\w+)\)$"
+		result = re.search(pattern, line)
+		if result is None:
+			continue
+		name = result[1]
+		usernames[name] = usernames.get(name, 0)+1
+print(usernames)
