@@ -19,6 +19,13 @@ print("===============================================")
 # print("Now we write it to STDOUT: " +data)
 # print("Now we generate an error to STDERR: " + data +1)
 
+print("===============================================")
+
+import os 
+print("HOME: " + os.environ.get("HOME",""))
+print("SHELL: " + os.environ.get("SHELL",""))
+print("FRUIT: " + os.environ.get("FRUIT",""))
+
 
 print("===============================================")
 #!/usr/bin/env python3
@@ -26,14 +33,14 @@ print("===============================================")
 
 import subprocess
 
-# print(subprocess.run)
-# subprocess.run(["dir"],shell =True)
-# subprocess.run(["date"], shell=True)
-# subprocess.run(["sleep","2"], shell=True)
-result = subprocess.run(["host","8.8.8.8"], capture_output=True, shell=True)
+print(subprocess.run)
+subprocess.run(["dir"],shell =True)
+subprocess.run(["date"], shell=True)
+subprocess.run(["sleep","2"], shell=True)
+result = subprocess.run(["host","8.8.8.8"], capture_output=True)#, shell=True
 print(result.stdout)
 print(result.stdout.decode().split())
-result = subprocess.run(["rm","does_not_exist"],capture_output=True,shell=True)
+result = subprocess.run(["rm","does_not_exist"],capture_output=True)
 print(result.returncode)
 print(result.stdout)
 print(result.stderr)
