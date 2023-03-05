@@ -4,7 +4,7 @@ import re
 def rearrange_name(name):
     result = re.search(r"^([\w .]*), ([\w .]*)$",name)
     if result is None:# add if the value is empty, return "" to avoid error
-        return ""
+        return name # change to name from ""
     return "{} {}".format(result[2],result[1])
 
 
