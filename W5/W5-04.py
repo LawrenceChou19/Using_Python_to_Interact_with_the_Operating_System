@@ -1,28 +1,21 @@
 #!/usr/bin/env python3
 
-def character_frequency(filename):
-    """Counts the frequency of each character in the given file."""
-    #First try to open the file
-    try:
-        f = open(filename)
-    except OSError:
-        return None
+# print(validate_user2([3],1))
+import unittest
+from validations import validate_user
+
+
+class TestValidateUser(unittest.TestCase):
+    def test_valid(self):
+        self.assertEqual(validate_user("validuser",3),True)
     
-    #Now process the file
-    characters = {}
-    for line in f:
-        for char in line:
-            characters[char] = characters.get(char,0)+1
-    f.close()
-    return characters
+    def test_too_short(self):
+        self.assertEqual(validate_user("inv",5),False)
+    
+    def test_invalid_characters(self):
+        self.assertEqual(validate_user("invalid_user",1),False)
 
+    def test_invalid_minlen(self)"
+        self.assertRaises(ValueError,validate_user,"user",-1)
 
-def validate_user(username,minlen):
-    if minlen < 1 :
-        raise ValueError("minlen must be at latest 1")
-    if len(username) < minlen:
-        return False
-    if not username.isalnum():
-        return True
-    return True
-print(validate_user("",-1))
+unittest.main()
