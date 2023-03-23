@@ -1,0 +1,12 @@
+ping hostname
+ctrl+z
+fg
+ctrl+c
+kill
+PID process identifier
+ps
+ps ax | grep ping
+kill pid
+> add
+>> append
+cat print
